@@ -71,5 +71,5 @@ if __name__ == '__main__':
         'rubbish', 'chewed gum', 'used tissue']
 
     # Execution
-    updated_iventory = add_to_inventory(current_inventory, dragon_loot)
-    display_inventory(updated_iventory)
+    updated_inventory = add_to_inventory(current_inventory, dragon_loot)
+    display_inventory(updated_inventory)
