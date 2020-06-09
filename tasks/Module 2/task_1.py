@@ -2,7 +2,6 @@
 
 
 # Globals
-# TODO: move globals to separate setting module?
 EXCLUDED_ITEMS = ['chewed gum', 'rubbish', 'used tissue']
 INVENTORY_LIGHT_WEIGHT = 60
 INVENTORY_HEAVY_WEIGHT = 70
@@ -33,7 +32,7 @@ def display_inventory(inventory: dict):
         print('CAUTION: You are overloaded, can\'t move!')
 
 
-def add_to_inventory(inventory: dict, added_items) -> dict:
+def add_to_inventory(inventory: dict, added_items: list) -> dict:
     """Add provided items to inventory object.
 
     Arguments:
@@ -66,12 +65,11 @@ def add_to_inventory(inventory: dict, added_items) -> dict:
 
 if __name__ == '__main__':
     # Inventory data
-    stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
-    inv = {'gold coin': 42, 'rope': 1}
-    dragonLoot = [
+    current_inventory = {'gold coin': 42, 'rope': 1}
+    dragon_loot = [
         'gold coin', 'chewed gum', 'dagger', 'gold coin', 'gold coin', 'ruby',
         'rubbish', 'chewed gum', 'used tissue']
 
     # Execution
-    inv = add_to_inventory(inv, dragonLoot)
-    display_inventory(inv)
+    updated_iventory = add_to_inventory(current_inventory, dragon_loot)
+    display_inventory(updated_iventory)
