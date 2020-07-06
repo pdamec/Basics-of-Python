@@ -1,5 +1,4 @@
-"""Module2/task1: Includes task of creating sandwich based on user's input."""
-
+"""Module2/task1: Includes task of creating sandwich calculator based on user's input."""
 import pyinputplus as pyip
 
 

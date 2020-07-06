@@ -3,4 +3,8 @@ pylint
 pydocstyle
 flake8
 
+# Tests
+pytest
+
+# Misc
 PyInputPlus
