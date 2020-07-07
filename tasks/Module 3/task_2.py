@@ -8,15 +8,13 @@ EMPTY_STRING_ERROR = 'Please provide a valid separator. It cannot be an empty st
 
 # Test data
 TEST_DATA_SET_1 = [
-    ('Python', ' '),
-    ('Python is cool', ' '),
-    (',,,,', ','),
-    ('Python', 'Javascript')
-                   ]
-
-# my_split(“Python is cool”, ‘ ‘) -> [‘Python’, ‘is’, ‘cool’]
-# my_split(",,,,", ',') -> ['', '', '', '', '']
-# my_split("Python", "Javascript") -> ['Python']
+    ('Python is cool', ' ', ['Python', 'is', 'cool']),
+    (',,,,', ',', ['', '', '', '', '']),
+    ('Python', 'Javascript', ['Python'])
+]
+TEST_DATA_SET_2 = [
+    ('feuer DPS pew pew', '')
+]
 
 
 def my_split(string_to_split, sep=None) -> list:
@@ -40,9 +38,13 @@ def my_split(string_to_split, sep=None) -> list:
     return split_results
 
 
-@pytest.mark.parametrize("text_to_split,sep",
-                         [TEST_DATA_SET_1])
-def test_my_split(text_to_split, sep):
-    assert my_split(text_to_split, sep) == text_to_split.split(sep)
+# Tests
+@pytest.mark.parametrize("text_to_split,sep,expected_result", TEST_DATA_SET_1)
+def test_expected_my_split(text_to_split, sep, expected_result):
+    assert my_split(text_to_split, sep) == expected_result
 
 
+@pytest.mark.parametrize("text_to_split,sep", TEST_DATA_SET_2)
+def test_empty_sep_my_split(text_to_split, sep):
+    with pytest.raises(ValueError, match=EMPTY_STRING_ERROR):
+        my_split(text_to_split, sep)
