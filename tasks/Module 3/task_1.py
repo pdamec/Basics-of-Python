@@ -10,18 +10,21 @@ SAUCE_TYPES_AND_PRICES = {'mayo': 2.5, 'mustard': 2, 'lettuce': 1, 'tomato': 0.7
 
 
 def select_bread() -> dict:
-    """Selects type of a bread.
-        :return {bread_type, bread_price}
+    """Select type of a bread.
+
+    :return {bread_type, bread_price}
     """
     print("What type of bread do you want?")
     declared_bread = pyip.inputMenu([*BREAD_TYPES_AND_PRICES.keys()])
-    return {bread: price for bread, price in BREAD_TYPES_AND_PRICES.items()
+    return {bread: price for bread, price in
+            BREAD_TYPES_AND_PRICES.items()
             if declared_bread == bread}
 
 
 def select_protein() -> dict:
-    """Selects type of protein.
-        :return {protein_type, protein_type}
+    """Select type of protein.
+
+    :return {protein_type, protein_type}
     """
     print("What type of protein do you want?")
     declared_protein = pyip.inputMenu([*PROTEIN_TYPES_AND_PRICES.keys()])
@@ -30,8 +33,9 @@ def select_protein() -> dict:
 
 
 def select_cheese() -> dict:
-    """Selects type of a cheese.
-        :return {cheese_type, cheese_price}
+    """Select type of a cheese.
+
+    :return {cheese_type, cheese_price}
     """
     if pyip.inputYesNo('Do you want cheese?') == 'no':
         return {}
@@ -43,8 +47,9 @@ def select_cheese() -> dict:
 
 
 def select_sauce() -> dict:
-    """Selects type of a sauce.
-        :return {sauce_type, sauce_price}
+    """Select type of a sauce.
+
+    :return {sauce_type, sauce_price}
     """
     if pyip.inputYesNo('Do you want sauce?') == 'no':
         return {}
@@ -56,11 +61,12 @@ def select_sauce() -> dict:
 
 
 def select_sandwich_amount() -> int:
+    """Select the number of sandwiches from user's input."""
     return pyip.inputInt('How many sandwiches do you want?', min=1)
 
 
 def prepare_sandwich() -> dict:
-    """Prepares dict consisting of sandwich data."""
+    """Prepare dict consisting of sandwich data."""
     # Factory approach would be overengineering? :D
     ingredients = [select_bread, select_protein, select_cheese, select_sauce]
     sandwich = {}
@@ -71,7 +77,8 @@ def prepare_sandwich() -> dict:
 
 
 def agregate_order(sandwich: dict):
-    """Displays order. Calculates price, lists ingredients.
+    """Display order. Calculates price, lists ingredients.
+
     :param sandwich: {ingredient: amount}
     """
     sandwich_amount = select_sandwich_amount()  # TODO: outside function scope, provided as param?
