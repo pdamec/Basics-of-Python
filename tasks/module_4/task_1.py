@@ -53,8 +53,8 @@ class MadLib:
 
 if __name__ == '__main__':
     # Paths
-    text_dir = os.path.join(os.getcwd(), 'resources')
-    input_file = os.path.join(text_dir, 'example.txt')
+    text_dir = os.path.join(os.getcwd(), 'resources', 'task_1')
+    input_file = os.path.join(text_dir, 'task_1.txt')
     output_file = os.path.join(text_dir, 'output.txt')
 
     # MadLib object
