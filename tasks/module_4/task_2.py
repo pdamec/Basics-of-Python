@@ -4,10 +4,12 @@ from contextlib import contextmanager
 
 
 FILE_PREFIX = 'spam'
+FILES_DIR = 'resources/task_2'
 
 
 @contextmanager
 def cwd(new_dir):
+    """Custom-made context manager for temporarily directory switching during runtime."""
     old_dir = os.getcwd()
     os.chdir(new_dir)
     try:
@@ -44,8 +46,6 @@ def adjust_files(files: list):
 
 
 if __name__ == '__main__':
-    files_dir = 'resources/task_2'
-
-    with cwd(files_dir):
+    with cwd(FILES_DIR):
         files_with_prefix = get_files_with_prefix()
         adjust_files(files_with_prefix)
