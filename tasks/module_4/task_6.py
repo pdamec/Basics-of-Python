@@ -1,6 +1,5 @@
 """Module4/Task6: Very sophisticated password breaker."""
 from PyPDF2 import PdfFileReader
-import threading
 
 
 # Vars
@@ -9,6 +8,7 @@ PDF_PATH = 'resources/task_6/encrypted.pdf'
 
 
 def decrypt_pdf_password():
+    """Decrypt password for encrypted pdf from file of passwords."""
     password = None
 
     with open(DICTIONARY_PATH, 'r') as eng_dict, open(PDF_PATH, 'rb') as enc_pdf:
@@ -18,7 +18,7 @@ def decrypt_pdf_password():
                 password = word
 
         if password:
-            print(f'Password decrypted: {password}')
+            print(f'Decrypted password: "{password}"')
 
 
 if __name__ == '__main__':
