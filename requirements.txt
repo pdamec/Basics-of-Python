@@ -2,3 +2,12 @@
 pylint
 pydocstyle
 flake8
+
+# PDF
+PyPDF2
+
+# Excel
+openpyxl
+
+# Cloud
+ezsheets
